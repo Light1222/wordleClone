@@ -84,17 +84,32 @@ section header{
 }
 
 .button2 {
-    background-color: #008CBA;
+    background-color: lightyellow; color: black;
     font-size: 40px;
+}
+.button2:hover {
+    background-color: orange;
+    font-size: 40px;
+    color: white;
 }
 .button4 {background-color: #e7e7e7; color: black;}
 .button1 {
-    background-color: #1c9c3a;
+    background-color: lightgreen; color: black;
     font-size: 40px;
+}
+.button1:hover {
+    background-color: #4CAF50;
+    font-size: 40px;
+    color: white;
 }
 .button6 {background-color: #0946b8;}
 .button3 {
-    background-color: #58647a;
+    background-color: lightcoral; color: black;
+    font-size: 40px;
+}
+.button3:hover {
+    background: red;
+    color: white;
     font-size: 40px;
 }
 .button9 {background-color: #b88037;}
