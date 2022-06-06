@@ -49,20 +49,30 @@
               </table>
               <div class="input-container">
                    <input type="text" maxlength="5" minlength="5">
-                   <button>Enter!</button>
+                   <button id="btn">Enter!</button>
+                  <button id="redo">Retry!</button>
               </div>
              <p id="game-over"></p>
          </div>
     </div>
 </body>
 <script>
-    const answer = "CRANE"; //todo make this random word
+    const answer = words[randomNum]; //todo make this random word
     const board = document.getElementById('board');
     const textBox = document.querySelector('input');
-    const submitButton = document.querySelector('button');
+    const submitButton = document.getElementById('btn');
+    const replayBtn = document.getElementById('redo')
     const gameOverMessage = document.getElementById('game-over')
+    const words = ["MARCH","CHALK","BLOCK","BROKE","BEGIN","TENSE","TRASH", "PRICK"]
+    let randomNum = Math.floor(Math.random() * words.length)
+
+
 
     let currentGuessNumber = 0
+
+    replayBtn.addEventListener('click', function(){
+        location.reload()
+    })
 
     submitButton.addEventListener('click', function(e) {
         let guess = textBox.value;
@@ -71,7 +81,7 @@
         }
 
         // todo clear the textbox once you hit submit
-
+        textBox.value = ""
         // render guess to the board
         writeGuess(guess) //todo create this function
 
@@ -91,7 +101,6 @@
         gameOverMessage.textContent = `You lost :( The word was ${answer}.`;
         submitButton.remove();
         textBox.remove();
-        return;
         }
 
     function writeGuess(guess){
@@ -104,12 +113,12 @@
         let columns = currentGuessRow.children
 
         for (let i = 0; i<matchArray.length; i++){
-            let columns = columns[i];
+            let column = columns[i];
             column.textContent = guess[i].toUpperCase();
 
             if (matchArray[i] === 2) {//perfect match
                 column.classList.add('correct');
-            } else if (matchArray[i] === 21{ //in word, wrong spot
+            } else if (matchArray[i] === 1) { //in word, wrong spot
                 column.classList.add('in-word');
             } else {
                 column.classList.add('incorrect'); //no match
