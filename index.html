@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guess the Word</title>
+    <title>Easy</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
          <div class="content">
+             <button id="back">DIFFICULTIES</button>
               <table>
                 <tbody id="board">
                   <tr>
@@ -50,23 +51,26 @@
               <div class="input-container">
                    <input type="text" maxlength="5" minlength="5">
                    <button id="btn">Enter!</button>
-                  <button id="redo">Retry!</button>
+                  <button id="redo">Replay</button>
               </div>
              <p id="game-over"></p>
          </div>
     </div>
 </body>
 <script>
-    const answer = words[randomNum]; //todo make this random word
+    const words = ["ABOUT","ABOVE","ACTOR"]
+        let random = Math.floor(Math.random() * words.length)
+    const answer = words[random]; //todo make this random word
     const board = document.getElementById('board');
     const textBox = document.querySelector('input');
     const submitButton = document.getElementById('btn');
     const replayBtn = document.getElementById('redo')
     const gameOverMessage = document.getElementById('game-over')
-    const words = ["MARCH","CHALK","BLOCK","BROKE","BEGIN","TENSE","TRASH", "PRICK"]
-    let randomNum = Math.floor(Math.random() * words.length)
+    const dif = document.getElementById('back')
 
-
+    dif.addEventListener("click", function(){
+        document.location.href = 'start.html';
+    });
 
     let currentGuessNumber = 0
 

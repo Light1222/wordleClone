@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleTwo.css">
+    <title>Guess the Word</title>
+</head>
+<body>
+<h1>Difficulties</h1>
+<div class="container">
+        <div class="center">
+            <button class="button button1" id="easy">Easy</button>
+            <button class="button button2" id="medium">Medium</button>
+            <button class="button button3" id="hard">Hard</button>
+        </div>
+</div>
+<script>
+    const esy = document.getElementById('easy')
+    const med = document.getElementById('medium')
+    const hrd = document.getElementById('hard')
+
+    esy.addEventListener("click", function(){
+        document.location.href = 'index.html';
+    });
+
+    med.addEventListener("click", function(){
+        document.location.href = 'game2.html';
+    });
+
+    hrd.addEventListener("click", function(){
+        document.location.href = 'game3.html';
+    });
+</script>
+</body>
+</html>
